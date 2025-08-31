@@ -45,7 +45,8 @@
         "custom/power", // First element is the "group leader" and won't ever be hidden
         "custom/quit",
         "custom/lock",
-        "custom/reboot"
+        "custom/reboot",
+        "custom/suspend"
       ]
     },
     "custom/quit": {
@@ -65,6 +66,12 @@
       "tooltip": true,
       "tooltip-format": "Reboot",
       "on-click": "systemctl reboot"
+    },
+    "custom/suspend": {
+      "format": "⏼",
+      "tooltip": true,
+      "tooltip-format": "Suspend",
+      "on-click": "systemctl suspend || loginctl suspend"
     },
     "custom/power": {
       "format": "",
