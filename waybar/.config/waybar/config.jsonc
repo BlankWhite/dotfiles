@@ -18,7 +18,8 @@
       "privacy",
       "hyprland/submap"
     ],
-    "modules-center": ["hyprland/window"],
+    //"modules-center": ["hyprland/window"],
+    "modules-center": ["niri/window"],
     "modules-right": [
       "mpris",
       "mpd",
@@ -133,6 +134,13 @@
         "(.*) — Mozilla Firefox": "🌎 $1"
       },
       "separate-outputs": true
+    },
+    "niri/window": {
+	"format": "{}",
+	"rewrite": {
+		"(.*) - Microsoft​ Edge": "🌎 $1",
+		"(.*) - zsh": "> [$1]"
+	}
     },
     "keyboard-state": {
       "numlock": true,
@@ -352,7 +360,7 @@
     "passthrough": false,
     "gtk-layer-shell": true,
     "reload_style_on_change": true,
-    "modules-left": ["hyprland/workspaces"],
+    "modules-left": ["niri/workspaces"],
     "modules-center": ["wlr/taskbar"],
     "modules-right": ["tray", "custom/notification"],
     "hyprland/submap": {
@@ -360,6 +368,18 @@
       "max-length": 8,
       "tooltip": false
     },
+"niri/workspaces": {
+	"format": "{icon}",
+	"format-icons": {
+		// Named workspaces
+		// (you need to configure them in niri)
+
+		// Icons by state
+		//"active": " ",
+		//"default": ""
+	}
+},
+
     "hyprland/workspaces": {
       "on-click": "activate",
       "format": "{icon} {windows}",
