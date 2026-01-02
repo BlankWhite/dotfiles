@@ -111,6 +111,12 @@ output "DP-1" {
     position x=0 y=0
     focus-at-startup
 }
+output "HDMI-A-1" {
+    mode "3840x2160@120"
+    scale 2
+    position x=0 y=0
+    focus-at-startup
+}
 
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
@@ -283,14 +289,16 @@ spawn-at-startup "swaync"
 spawn-sh-at-startup "copyq --start-server"
 spawn-sh-at-startup "aria2c --enable-rpc --rpc-listen-all --rpc-allow-origin-all"
 spawn-sh-at-startup "sudo v2raya"
-spawn-at-startup "swaybg -m fill -i ~/Pictures/WallPapers/chisa.png"
+spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/WallPapers/chisa.png"
+//spawn-at-startup "swayidle" "-w" "timeout" "1500" "niri msg action power-off-monitors" "timeout" "1200" "swaylock -f" "timeout" "2700" "systemctl suspend || loginctl suspend" 
+spawn-at-startup "swayidle" "-w" "timeout" "300" "if pgrep -x swaylock; then niri msg action power-off-monitors; fi" "timeout" "1200" "swaylock -f" "timeout" "1500" "niri msg action power-off-monitors" "timeout" "2700" "systemctl suspend || loginctl suspend" "before-sleep" "swaylock -f"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
-    // skip-at-startup
+     skip-at-startup
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -353,7 +361,11 @@ window-rule{
     opacity 0.9
 }
 window-rule{
-    match app-id="QQ" title="图片查看器"
+    match app-id="QQ|steam" title="QQ|图片查看器|录像及截图|聊天记录$"
+    open-floating true
+}
+window-rule{
+    match app-id="mpv"
     open-floating true
 }
 // Example: block out two password managers from screen capture.
@@ -393,7 +405,7 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "swaylock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -657,6 +669,6 @@ environment {
 
     // Remove a variable by using null as the value:
     // DISPLAY null
-    GDK_SCALE "2"
+    GDK_SCALE "1.5"
     XCURSOR_SIZE "32"
 }
