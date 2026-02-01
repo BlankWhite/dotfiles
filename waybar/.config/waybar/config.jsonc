@@ -11,20 +11,20 @@
     "reload_style_on_change": true,
     "modules-left": [
       "custom/updates",
-      "keyboard-state",
+      //"keyboard-state",
       "clock",
       "bluetooth",
       "network",
       "privacy",
-      "hyprland/submap"
+      //"hyprland/submap"
     ],
     //"modules-center": ["hyprland/window"],
     "modules-center": ["niri/window"],
     "modules-right": [
       "mpris",
       "mpd",
-      "battery",
-      "backlight",
+      //"battery",
+      //"backlight",
       "wireplumber",
       "temperature",
       "group/cpu-load",
@@ -339,14 +339,17 @@
 
     // Custom
     "custom/updates": {
-      "format": "{} {icon}",
-      "return-type": "json",
-      "format-icons": {
-        "has-updates": " ", //"
-        "updated": ""
-      },
-      "exec-if": "which waybar-module-pacman-updates",
-      "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300"
+        "format": "{} {icon}",
+        "return-type": "json",
+        "format-icons": {
+            "has-updates": "",
+            "updated": ""
+        },
+        // 这里去掉了 exec-if，因为我们直接通过脚本控制
+        "exec": "~/.config/waybar/scripts/gentoo-updates.sh",
+        "interval": 3600,  // 设置为 1 小时检查一次，eix 很快，但也无需太频繁
+        //"on-click": "exec alacritty -e sudo emerge --sync && sudo emerge -auDU @world", // 点击时更新（请根据你的终端修改，比如 foot 或 kitty）
+        "signal": 8 // 允许通过发送信号立即刷新 (pkill -RTMIN+8 waybar)
     }
   },
   {
