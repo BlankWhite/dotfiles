@@ -15,14 +15,14 @@
       "clock",
       "bluetooth",
       "network",
-      "privacy",
+      "privacy"
       //"hyprland/submap"
     ],
     //"modules-center": ["hyprland/window"],
     "modules-center": ["niri/window"],
     "modules-right": [
-      "mpris",
-      "mpd",
+      //"mpris",
+      //"mpd",
       //"battery",
       //"backlight",
       "wireplumber",

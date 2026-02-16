@@ -114,7 +114,7 @@ output "DP-1" {
 output "HDMI-A-1" {
     mode "3840x2160@120"
     scale 2
-    position x=0 y=0
+    position x=2560 y=0
     focus-at-startup
 }
 
@@ -291,7 +291,7 @@ spawn-sh-at-startup "aria2c --enable-rpc --rpc-listen-all --rpc-allow-origin-all
 spawn-sh-at-startup "sudo v2raya"
 spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/WallPapers/mornye.png"
 //spawn-at-startup "swayidle" "-w" "timeout" "1500" "niri msg action power-off-monitors" "timeout" "1200" "swaylock -f" "timeout" "2700" "systemctl suspend || loginctl suspend" 
-spawn-at-startup "swayidle" "-w" "timeout" "300" "if pgrep -x swaylock; then niri msg action power-off-monitors; fi" "timeout" "1200" "swaylock -f" "timeout" "1500" "niri msg action power-off-monitors" "timeout" "2700" "systemctl suspend || loginctl suspend" "before-sleep" "swaylock -f"
+spawn-at-startup "swayidle" "-w" "timeout" "60" "if pgrep -x swaylock; then niri msg action power-off-monitors; fi" "timeout" "1200" "swaylock -f" "timeout" "1500" "niri msg action power-off-monitors" "timeout" "2700" "systemctl suspend || loginctl suspend" "before-sleep" "swaylock -f"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -340,6 +340,22 @@ window-rule {
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
 }
+window-rule {
+    // 匹配没有 app-id 且没有标题的窗口（通常是某些简陋的 Tooltip 或脚本窗口）
+    match app-id="^$" title="^$"
+
+    // 1. 强制浮动
+    open-floating true
+
+    // 2. 拒绝焦点（关键修改）
+    // 让窗口打开时不抢占键盘焦点，防止你正在打字时被它打断
+    open-focused false
+    border{
+        off
+    }
+
+
+}
 
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
@@ -386,6 +402,7 @@ window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
 }
+
 
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
