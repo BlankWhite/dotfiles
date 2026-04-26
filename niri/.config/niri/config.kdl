@@ -689,3 +689,10 @@ environment {
     GDK_SCALE "1.5"
     XCURSOR_SIZE "32"
 }
+
+gestures {
+    // 关闭所有热角功能
+    hot-corners {
+        off
+    }
+}
