@@ -377,6 +377,10 @@ window-rule{
     open-floating true
 }
 window-rule{
+    match app-id=r#"^nemo$"#
+    open-floating true
+}
+window-rule{
     match app-id=r#"kitty$"#
     draw-border-with-background false
     opacity 0.9
@@ -427,6 +431,7 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Mod+E hotkey-overlay-title="Open File Manager: nemo" { spawn "nemo"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "swaylock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
