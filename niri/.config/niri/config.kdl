@@ -294,6 +294,7 @@ spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/WallPapers/mornye.png"
 //spawn-at-startup "swayidle" "-w" "timeout" "1500" "niri msg action power-off-monitors" "timeout" "1200" "swaylock -f" "timeout" "2700" "systemctl suspend || loginctl suspend" 
 spawn-at-startup "swayidle" "-w" "timeout" "60" "if pgrep -x swaylock; then niri msg action power-off-monitors; fi" "timeout" "1200" "swaylock -f" "timeout" "1500" "niri msg action power-off-monitors" "timeout" "2700" "systemctl suspend || loginctl suspend" "before-sleep" "swaylock -f"
 
+spawn-at-startup "~/.config/niri/auto-float.sh"
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
@@ -401,6 +402,19 @@ window-rule{
     match app-id=r#"^msedge-_jbkfoedolllekgbhcbcoahefnbanhhlh-Default$"#
     open-floating true
 }
+window-rule{
+    match app-id="microsoft-edge" title="untitled"
+    open-floating true
+}
+window-rule {
+    // 拦截刚打开时标题包含 "Untitled" 的 Edge 窗口
+    match app-id="microsoft-edge" title="^Untitled.*"
+    
+    // Niri 只有在这一帧看到 open-floating 才会把窗口完美居中！
+    open-floating true
+    
+}
+
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
 /-window-rule {
