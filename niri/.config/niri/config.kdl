@@ -402,6 +402,10 @@ window-rule{
     open-floating true
 }
 window-rule{
+    match app-id=r#"^msedge-_mpkodccbngfoacfalldjimigbofkhgjn-Default$"#
+    open-floating true
+}
+window-rule{
     match app-id="microsoft-edge" title="^Untitled"
     open-floating true
 }
