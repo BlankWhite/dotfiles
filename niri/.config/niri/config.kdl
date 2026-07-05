@@ -441,9 +441,9 @@ window-rule {
     clip-to-geometry true
 }
 workspace "main"  {} 
-workspace "scratch" {} 
 workspace "dev" {} 
 workspace "game" {} 
+workspace "scratch" {} 
 window-rule {
     match app-id="kitty-scratch"
     opacity 0.8
@@ -473,7 +473,7 @@ binds {
     // shows a list of important hotkeys.
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Shift+S { spawn "/home/shulk/.local/bin/niri-scratchpad" "kitty-scratch" "kitty" "--class" "kitty-scratch" ; }
+    //Mod+Shift+S { spawn "/home/shulk/.local/bin/niri-scratchpad" "kitty-scratch" "kitty" "--class" "kitty-scratch" ; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
@@ -718,6 +718,8 @@ binds {
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
+    // 提取剪切板图片 -> Swappy修改 -> 传回剪切板
+    Mod+Alt+P { spawn-sh "wl-paste --type image/png | swappy -f - -o - | wl-copy --type image/png"; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here
