@@ -78,7 +78,7 @@
       "format": "",
       "tooltip": true,
       "tooltip-format": "Shutdown",
-      "on-click": "shutdown now"
+      "on-click": "~/.config/waybar/scripts/power-menu.sh shutdown"
     },
     "group/cpu-load": {
       "orientation": "inherit",
