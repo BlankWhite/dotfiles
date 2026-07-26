@@ -138,10 +138,14 @@ window#waybar.empty {
 #wireplumber,
 #keyboard-state,
 #custom-notification,
+#custom-power,
+#custom-quit,
+#custom-lock,
+#custom-reboot,
+#custom-suspend,
 #taskbar,
 #user,
 #systemd-failed-units,
-#power,
 #load,
 #jack,
 #cpu-load,
@@ -152,6 +156,11 @@ window#waybar.empty {
 }
 
 #power {
+    background: transparent;
+    border-radius: 0;
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
     margin-right: 5px;
 }
 
