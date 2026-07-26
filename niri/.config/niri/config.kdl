@@ -356,9 +356,13 @@ window-rule {
     // 2. 拒绝焦点（关键修改）
     // 让窗口打开时不抢占键盘焦点，防止你正在打字时被它打断
     open-focused false
-    border{
-        off
+    border {
+        width 2
+        active-gradient from="#FA8BFF" to="#2BD2FF" angle=90
+        inactive-gradient from="#FA8BFF" to="#2BD2FF" angle=90
     }
+    geometry-corner-radius 12
+    clip-to-geometry true
 
 
 }
