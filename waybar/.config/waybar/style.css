@@ -164,6 +164,26 @@ window#waybar.empty {
     margin-right: 5px;
 }
 
+#custom-power,
+#custom-quit,
+#custom-lock,
+#custom-reboot,
+#custom-suspend {
+    border: 1px solid transparent;
+}
+
+#custom-power:hover,
+#custom-quit:hover,
+#custom-lock:hover,
+#custom-reboot:hover,
+#custom-suspend:hover {
+    border-radius: 10px;
+    background:
+        linear-gradient(black, black) padding-box,
+        linear-gradient(45deg, #FA8BFF, #2BD2FF) border-box;
+    border: 1px solid transparent;
+}
+
 #temperature.critical {
     background-color: red;
 }
