@@ -191,6 +191,15 @@ window#waybar.empty {
     border: 1px solid transparent;
 }
 
+@keyframes gradient-border-flow {
+    0% {
+        background-position: 0 0, 0% 50%;
+    }
+    100% {
+        background-position: 0 0, 200% 50%;
+    }
+}
+
 #custom-power:hover,
 #custom-quit:hover,
 #custom-lock:hover,
@@ -206,7 +215,9 @@ window#waybar.empty {
     border-radius: 10px;
     background:
         linear-gradient(black, black) padding-box,
-        linear-gradient(45deg, #FA8BFF, #2BD2FF) border-box;
+        linear-gradient(90deg, #FA8BFF, #2BD2FF, #FA8BFF) border-box;
+    background-size: 100% 100%, 200% 100%;
+    animation: gradient-border-flow 1.5s linear infinite;
     border: 1px solid transparent;
 }
 
