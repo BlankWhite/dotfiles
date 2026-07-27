@@ -165,6 +165,18 @@ window#waybar.empty {
 }
 
 #custom-power,
+#custom-notification,
+#custom-updates {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#custom-power label {
+    margin-left: -1px;
+    margin-right: 1px;
+}
+
+#custom-power,
 #custom-quit,
 #custom-lock,
 #custom-reboot,
