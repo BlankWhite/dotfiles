@@ -181,7 +181,13 @@ window#waybar.empty {
 #custom-lock,
 #custom-reboot,
 #custom-suspend,
-#custom-notification {
+#custom-notification,
+#wireplumber,
+#temperature,
+#cpu,
+#load,
+#memory,
+#idle_inhibitor {
     border: 1px solid transparent;
 }
 
@@ -190,7 +196,13 @@ window#waybar.empty {
 #custom-lock:hover,
 #custom-reboot:hover,
 #custom-suspend:hover,
-#custom-notification:hover {
+#custom-notification:hover,
+#wireplumber:hover,
+#temperature:hover,
+#cpu:hover,
+#load:hover,
+#memory:hover,
+#idle_inhibitor:hover {
     border-radius: 10px;
     background:
         linear-gradient(black, black) padding-box,
