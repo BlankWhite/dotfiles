@@ -168,7 +168,8 @@ window#waybar.empty {
 #custom-quit,
 #custom-lock,
 #custom-reboot,
-#custom-suspend {
+#custom-suspend,
+#custom-notification {
     border: 1px solid transparent;
 }
 
@@ -176,7 +177,8 @@ window#waybar.empty {
 #custom-quit:hover,
 #custom-lock:hover,
 #custom-reboot:hover,
-#custom-suspend:hover {
+#custom-suspend:hover,
+#custom-notification:hover {
     border-radius: 10px;
     background:
         linear-gradient(black, black) padding-box,
