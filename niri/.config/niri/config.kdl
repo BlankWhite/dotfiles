@@ -42,6 +42,12 @@ input {
         // disabled-on-external-mouse
     }
 
+    // The WingCoolTouch touchscreen is integrated with HDMI-A-2.
+    // Map its absolute coordinates to that output instead of the whole desktop.
+    touch {
+        map-to-output "HDMI-A-2"
+    }
+
     mouse {
         // off
         // natural-scroll
@@ -61,8 +67,8 @@ input {
         // middle-emulation
     }
 
-    // Uncomment this to make the mouse warp to the center of newly focused windows.
-    // warp-mouse-to-focus
+    // Warp the mouse cursor to the center of newly focused windows.
+    warp-mouse-to-focus mode="center-xy"
 
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
@@ -111,10 +117,11 @@ output "DP-1" {
     position x=0 y=0
     focus-at-startup
 }
-output "HDMI-A-1" {
-    mode "3840x2160@120"
-    scale 2
-    position x=2560 y=0
+output "HDMI-A-2" {
+    mode "3840x2160@60"
+    scale 2.5
+    // Centered below DP-1 (DP-1 logical size: 2560×1440).
+    position x=512 y=1440
     focus-at-startup
 }
 
@@ -458,7 +465,9 @@ window-rule {
     clip-to-geometry true
 }
 workspace "main"  {} 
-workspace "dev" {} 
+workspace "dev" {
+    open-on-output "HDMI-A-2"
+} 
 workspace "game" {} 
 workspace "scratch" {} 
 window-rule {
@@ -647,8 +656,8 @@ binds {
     //
     // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
     // will all refer to the 3rd workspace.
-    Mod+1 { focus-workspace 1; }
-    Mod+2 { focus-workspace 2; }
+    Mod+1 { focus-workspace "main"; }
+    Mod+2 { focus-workspace "dev"; }
     Mod+3 { focus-workspace 3; }
     Mod+4 { focus-workspace 4; }
     Mod+5 { focus-workspace 5; }
