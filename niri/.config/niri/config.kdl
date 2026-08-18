@@ -461,7 +461,9 @@ window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
 }
-workspace "main"  {} 
+workspace "main" {
+    open-on-output "DP-1"
+}
 workspace "dev" {
     open-on-output "HDMI-A-2"
 } 
