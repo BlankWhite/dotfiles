@@ -2,7 +2,7 @@
 * {
     border: none;
     border-radius: 10px;
-    font-family: "Iosevka", "Noto Sans CJK SC", "Symbols Nerd Font Mono";
+    font-family: "Maple Mono NF CN", "Symbols Nerd Font Mono";
     font-weight: bold;
     font-size: 12px;
     min-height: 20px;
@@ -174,6 +174,11 @@ window#waybar.empty {
 #custom-power label {
     margin-left: -1px;
     margin-right: 1px;
+}
+
+/* Maple's Nerd Font eye glyph overflows its advance width; use the symbol font to center it. */
+#idle_inhibitor {
+    font-family: "Symbols Nerd Font Mono";
 }
 
 #custom-reboot {

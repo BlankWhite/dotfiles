@@ -770,13 +770,13 @@ environment {
 
     // Remove a variable by using null as the value:
     // DISPLAY null
-    XCURSOR_THEME "Aemeath-Shades"
+    XCURSOR_THEME "Hatsune-Miku"
     GDK_SCALE "1.5"
-    XCURSOR_SIZE "48"
+    XCURSOR_SIZE "64"
 }
 cursor {
-    xcursor-theme "Aemeath-Shades"
-    xcursor-size 48
+    xcursor-theme "Hatsune-Miku"
+    xcursor-size 64
 }
 
 gestures {
