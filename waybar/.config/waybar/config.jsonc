@@ -63,16 +63,16 @@
       "on-click": "hyprlock"
     },
     "custom/reboot": {
-      "format": "󰜉",
+      "format": "",
       "tooltip": true,
       "tooltip-format": "Reboot",
-      "on-click": "systemctl reboot"
+      "on-click": "~/.config/waybar/scripts/power-menu.sh reboot"
     },
     "custom/suspend": {
       "format": "⏼",
       "tooltip": true,
       "tooltip-format": "Suspend",
-      "on-click": "systemctl suspend || loginctl suspend"
+      "on-click": "~/.config/waybar/scripts/power-menu.sh suspend"
     },
     "custom/power": {
       "format": "",

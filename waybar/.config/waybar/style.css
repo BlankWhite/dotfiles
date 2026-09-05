@@ -176,6 +176,10 @@ window#waybar.empty {
     margin-right: 1px;
 }
 
+#custom-reboot {
+    font-family: "Symbols Nerd Font Mono";
+}
+
 #custom-power,
 #custom-quit,
 #custom-lock,

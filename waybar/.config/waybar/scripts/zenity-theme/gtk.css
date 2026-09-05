@@ -1,0 +1,135 @@
+/* Process-local GTK stylesheet for Waybar Zenity power confirmation dialogs */
+
+/* Libadwaita named colors */
+@define-color window_bg_color #000000;
+@define-color window_fg_color #00eeff;
+@define-color dialog_bg_color #000000;
+@define-color dialog_fg_color #00eeff;
+@define-color view_bg_color #000000;
+@define-color view_fg_color #00eeff;
+@define-color headerbar_bg_color #000000;
+@define-color headerbar_fg_color #00eeff;
+@define-color card_bg_color #000000;
+@define-color card_fg_color #00eeff;
+@define-color accent_color #00eeff;
+@define-color accent_bg_color #00eeff;
+@define-color accent_fg_color #000000;
+
+/* Base dialog window */
+window,
+window.background,
+window.messagedialog,
+window.dialog.message,
+window.dialog,
+dialog,
+dialog-host > dialog.alert sheet,
+window.dialog-window.alert {
+    background:
+        linear-gradient(#000000, #000000) padding-box,
+        linear-gradient(45deg, #FA8BFF, #2BD2FF) border-box;
+    background-color: #000000;
+    color: #00eeff;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-family: "Maple Mono NF CN", "Symbols Nerd Font Mono", monospace;
+    font-size: 14px;
+    min-width: 320px;
+}
+
+window.messagedialog.csd,
+window.messagedialog.csd:not(.solid-csd),
+window.dialog-window.alert.csd:not(.solid-csd),
+dialog-host > dialog.alert sheet {
+    border-radius: 10px;
+}
+
+/* Transparent sub-areas to ensure unified black background */
+window.messagedialog .titlebar,
+window.messagedialog headerbar,
+window.messagedialog .message-area,
+window.messagedialog .response-area,
+window.dialog .dialog-action-area,
+window.dialog .action-area {
+    background-color: transparent;
+    background: transparent;
+}
+
+/* Typography & Labels */
+window.messagedialog label,
+window.dialog label,
+dialog label,
+label {
+    color: inherit;
+    font-family: "Maple Mono NF CN", "Symbols Nerd Font Mono", monospace;
+}
+
+label.title-2,
+label.title-4,
+label.heading,
+.heading-bin label {
+    font-weight: bold;
+    font-size: 16px;
+    color: #00eeff;
+}
+
+label.body {
+    font-size: 14px;
+    color: #00eeff;
+}
+
+/* Response buttons */
+window.messagedialog .response-area > button,
+window.dialog .dialog-action-area > button,
+window.dialog .action-area > button,
+button {
+    background: #000000;
+    background-color: #000000;
+    color: #00eeff;
+    font-family: "Maple Mono NF CN", "Symbols Nerd Font Mono", monospace;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 238, 255, 0.4);
+    padding: 8px 20px;
+    min-height: 32px;
+    min-width: 80px;
+    margin: 4px;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Button hover state: gradient accent */
+window.messagedialog .response-area > button:hover,
+window.dialog .dialog-action-area > button:hover,
+window.dialog .action-area > button:hover,
+button:hover {
+    background:
+        linear-gradient(#111111, #111111) padding-box,
+        linear-gradient(45deg, #FA8BFF, #2BD2FF) border-box;
+    border: 1px solid transparent;
+    color: #ffffff;
+    box-shadow: 0 0 6px rgba(43, 210, 255, 0.4);
+}
+
+/* Button focus state: gradient accent */
+window.messagedialog .response-area > button:focus,
+window.dialog .dialog-action-area > button:focus,
+window.dialog .action-area > button:focus,
+button:focus {
+    outline: none;
+    background:
+        linear-gradient(#000000, #000000) padding-box,
+        linear-gradient(45deg, #FA8BFF, #2BD2FF) border-box;
+    border: 1px solid transparent;
+    color: #00eeff;
+    box-shadow: 0 0 8px rgba(250, 139, 255, 0.5);
+}
+
+/* Button active / pressed state */
+window.messagedialog .response-area > button:active,
+window.dialog .dialog-action-area > button:active,
+window.dialog .action-area > button:active,
+button:active {
+    background: linear-gradient(45deg, #FA8BFF, #2BD2FF);
+    color: #000000;
+    border: 1px solid transparent;
+}
