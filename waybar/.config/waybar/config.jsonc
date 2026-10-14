@@ -21,7 +21,7 @@
     //"modules-center": ["hyprland/window"],
     "modules-center": ["niri/window"],
     "modules-right": [
-      //"mpris",
+      "mpris",
       //"mpd",
       //"battery",
       //"backlight",

@@ -772,11 +772,11 @@ environment {
     // DISPLAY null
     XCURSOR_THEME "Hatsune-Miku"
     GDK_SCALE "1.5"
-    XCURSOR_SIZE "64"
+    XCURSOR_SIZE "48"
 }
 cursor {
     xcursor-theme "Hatsune-Miku"
-    xcursor-size 64
+    xcursor-size 48
 }
 
 gestures {
