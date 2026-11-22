@@ -279,12 +279,12 @@ spawn-sh-at-startup "copyq --start-server"
 spawn-sh-at-startup "aria2c"
 //spawn-sh-at-startup "sudo v2raya"
 spawn-sh-at-startup "openrgb --profile myrgb"
-//spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/WallPapers/mornye_maid.jpeg"
+spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/WallPapers/Qwen2511-16x9-4K-20261023204919_00001_.png"
 // 启动壁纸（必须全部写在同一行）
-spawn-at-startup "mpvpaper" "-o" "--no-audio --hwdec=auto --loop-file=inf --hr-seek=yes --hr-seek-demuxer-offset=0 --cache=yes --demuxer-max-bytes=500M  --input-ipc-server=/tmp/mpv-wallpaper.sock" "ALL" "/media/d/STEAM/steamapps/workshop/content/431960/1962415472/Reimu 灵梦（雪）.mp4"
+//spawn-at-startup "mpvpaper" "-o" "--no-audio --hwdec=auto --loop-file=inf --hr-seek=yes --hr-seek-demuxer-offset=0 --cache=yes --demuxer-max-bytes=500M  --input-ipc-server=/tmp/mpv-wallpaper.sock" "ALL" "/media/d/STEAM/steamapps/workshop/content/431960/1962415472/Reimu 灵梦（雪）.mp4"
 
 // 启动智能检测脚本（使用绝对路径最稳妥）
-spawn-at-startup "/home/shulk/.config/niri/scripts/niri-wallpaper-pause.sh"
+//spawn-at-startup "/home/shulk/.config/niri/scripts/niri-wallpaper-pause.sh"
 //spawn-at-startup "swayidle" "-w" "timeout" "1500" "niri msg action power-off-monitors" "timeout" "1200" "swaylock -f" "timeout" "2700" "systemctl suspend || loginctl suspend" 
 spawn-at-startup "swayidle" "-w" "timeout" "60" "if pgrep -x swaylock; then niri msg action power-off-monitors; fi" "timeout" "1200" "swaylock -f" "timeout" "1500" "niri msg action power-off-monitors" "timeout" "2700" "systemctl suspend || loginctl suspend" "before-sleep" "swaylock -f"
 
