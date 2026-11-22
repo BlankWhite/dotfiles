@@ -68,8 +68,14 @@ input {
     }
 
     // Focus windows and outputs automatically when moving the mouse into them.
-    // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
-    // focus-follows-mouse max-scroll-amount="0%"
+    // 鼠标移到哪个窗口就把焦点切到哪个窗口（焦点跟随鼠标）。
+    // max-scroll-amount="0%" 表示只在窗口已完整显示在屏幕上时才切换焦点，
+    // 避免鼠标划过屏幕边缘时视图自动滚动、窗口在指针下乱跑。
+    focus-follows-mouse max-scroll-amount="0%"
+
+    // 想要更激进的“纯跟随”（窗口只露出一部分也接手焦点，并把它滚动进视图），
+    // 把上一行注释掉、改用下面这行即可：
+    // focus-follows-mouse
 }
 
 // You can configure outputs by their name, which you can find
