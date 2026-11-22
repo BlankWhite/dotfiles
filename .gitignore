@@ -2,4 +2,5 @@
 *.lock*
 *.swp
 copyq_geometry.ini
+copyq_tabs.ini
 .codex
