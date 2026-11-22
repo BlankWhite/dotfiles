@@ -391,7 +391,8 @@ window-rule{
 window-rule{
     match app-id=r#"kitty$"#
     draw-border-with-background false
-    opacity 0.9
+    // opacity 由 kitty 自身处理（kitty.conf: background_opacity 0.8 + background_blur 2），
+    // 不再叠加合成器侧透明度，避免双重透明。
 }
 window-rule{
     match app-id="QQ|steam|pavucontrol$|org\\.telegram\\.desktop$" title="Volume Control|QQ|图片查看器|录像及截图|聊天记录$|Media viewer|视频播放器"
