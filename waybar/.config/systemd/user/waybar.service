@@ -1,0 +1,34 @@
+# Waybar 由 systemd 用户服务监管：崩溃自动拉起，正常退出不再拉起。
+#
+# 部署（stow 后执行一次）：
+#   systemctl --user daemon-reload
+#   systemctl --user enable --now waybar.service
+#
+# 常用操作：
+#   systemctl --user restart waybar.service   # 改完 config.jsonc 后重启
+#   journalctl --user -u waybar -f           # 看日志（崩溃原因也会在这里）
+#   pkill waybar                             # 手动停掉（SIGTERM 视为主动退出，不会被拉起）
+#
+# 只有崩溃（SIGSEGV / SIGABRT / 非 0 退出）才会自动重启。
+
+[Unit]
+Description=Waybar status bar
+Documentation=man:waybar(5)
+# 跟随图形会话：会话结束就停；会话内崩溃由 Restart 负责
+PartOf=graphical-session.target
+After=graphical-session.target
+# 30 秒内最多拉起 5 次；配置写坏导致必崩时不会无限刷屏
+StartLimitIntervalSec=30
+StartLimitBurst=5
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/waybar
+Restart=on-failure
+RestartSec=1
+# 主动退出（pkill / SIGTERM/SIGINT/SIGHUP/SIGQUIT）算正常退出，不重启
+SuccessExitStatus=SIGTERM SIGINT SIGHUP SIGQUIT
+TimeoutStopSec=5
+
+[Install]
+WantedBy=graphical-session.target

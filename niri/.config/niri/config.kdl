@@ -264,8 +264,10 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
-// This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "waybar"
+// waybar 改由 systemd 用户服务监管（崩溃自动重启），见
+// ~/.config/systemd/user/waybar.service（由 graphical-session.target 拉起）。
+// 不要在这里再 spawn，否则会和 systemd 的那份重复。
+// spawn-at-startup "waybar"
 spawn-at-startup "swaync"
 spawn-sh-at-startup "copyq --start-server"
 spawn-sh-at-startup "aria2c --enable-rpc --rpc-listen-all --rpc-allow-origin-all"
